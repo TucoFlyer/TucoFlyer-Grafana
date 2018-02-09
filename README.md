@@ -11,5 +11,5 @@ I've been experimenting with both Chronograf and Grafana for analyzing this data
 and it looks like Grafana handles time navigation at this scale somewhat better, but
 they both seem like good options.
 
-This repository will be specifically about confiurations and other tools for using Grafana
+This repository will be specifically about configurations and tools for using Grafana
 with Tuco Flyer's InfluxDB database.
