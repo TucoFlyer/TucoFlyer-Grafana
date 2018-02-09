@@ -46,18 +46,26 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1518136166795,
+  "iteration": 1518146253810,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "camera.pitch": "#052b51",
+        "camera.yaw": "#1f78c1",
+        "halted": "#bf1b00",
+        "relative.x": "#e5ac0e",
+        "relative.y": "#e0752d",
+        "relative.z": "#f9e2d2"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUX}",
+      "decimals": 2,
       "fill": 1,
       "gridPos": {
-        "h": 9,
+        "h": 5,
         "w": 12,
         "x": 0,
         "y": 0
@@ -80,7 +88,12 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "alias": "halted",
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -337,29 +350,41 @@
       },
       "yaxes": [
         {
-          "format": "short",
-          "label": null,
+          "decimals": 1,
+          "format": "percentunit",
+          "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "1",
+          "min": "-1",
           "show": true
         },
         {
-          "format": "short",
+          "decimals": 0,
+          "format": "none",
           "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "1",
+          "min": "0",
           "show": true
         }
       ]
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "position_err 0i": "#3f6833",
+        "position_err 2i": "#2f575e",
+        "position_err.fitered 0i": "#7eb26d",
+        "position_err.fitered 2i": "#82b5d8",
+        "pwm 0i": "#e24d42",
+        "pwm 2i": "#f2c96d",
+        "velocity 0i": "#e0752d",
+        "velocity 2i": "#e0752d"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUX}",
+      "decimals": 3,
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -411,55 +436,6 @@
       "stack": false,
       "steppedLine": false,
       "targets": [
-        {
-          "alias": "poserr $tag_id",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "id"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "winch.status",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "position_err"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "id",
-              "operator": "=~",
-              "value": "/^$winch_id$/"
-            }
-          ]
-        },
         {
           "alias": "pwm $tag_id",
           "groupBy": [
@@ -559,6 +535,104 @@
             }
           ],
           "yaxis": 1
+        },
+        {
+          "alias": "position_err $tag_id",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "id"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "winch.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "position_err"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "id",
+              "operator": "=~",
+              "value": "/^$winch_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "position_err.fitered $tag_id",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "id"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "winch.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "position_err.filtered"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "id",
+              "operator": "=~",
+              "value": "/^$winch_id$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -607,10 +681,10 @@
       "decimals": 3,
       "fill": 1,
       "gridPos": {
-        "h": 27,
+        "h": 17,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 5
       },
       "id": 2,
       "legend": {
@@ -717,9 +791,131 @@
           "show": true
         }
       ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 22
+      },
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "pwm.hz $tag_id",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "id"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "winch.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "pwm.hz"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "id",
+              "operator": "=~",
+              "value": "/^$winch_id$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Winch PWM Frequency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "hertz",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
@@ -773,8 +969,8 @@
     ]
   },
   "time": {
-    "from": "2018-02-07T21:32:09.622Z",
-    "to": "2018-02-07T21:32:13.349Z"
+    "from": "now-15m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -804,5 +1000,5 @@
   "timezone": "",
   "title": "Tuco Flyer",
   "uid": "yM0Xf3Czk",
-  "version": 3
+  "version": 14
 }
