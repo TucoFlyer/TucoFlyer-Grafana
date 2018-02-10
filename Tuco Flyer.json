@@ -46,329 +46,9 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1518146253810,
+  "iteration": 1518228665139,
   "links": [],
   "panels": [
-    {
-      "aliasColors": {
-        "camera.pitch": "#052b51",
-        "camera.yaw": "#1f78c1",
-        "halted": "#bf1b00",
-        "relative.x": "#e5ac0e",
-        "relative.y": "#e0752d",
-        "relative.z": "#f9e2d2"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "${DS_INFLUX}",
-      "decimals": 2,
-      "fill": 1,
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "id": 4,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "halted",
-          "yaxis": 2
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "halted",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "config",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "mode.halted"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "camera.pitch",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "manual_controls",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
-          "rawQuery": false,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "camera.pitch"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "camera.yaw",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "manual_controls",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
-          "rawQuery": false,
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "camera.yaw"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "relative.x",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "manual_controls",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
-          "rawQuery": false,
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "relative.x"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "relative.y",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "manual_controls",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
-          "rawQuery": false,
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "relative.y"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "alias": "relative.z",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "previous"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "manual_controls",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
-          "rawQuery": false,
-          "refId": "F",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "relative.z"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Controls",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 1,
-          "format": "percentunit",
-          "label": "",
-          "logBase": 1,
-          "max": "1",
-          "min": "-1",
-          "show": true
-        },
-        {
-          "decimals": 0,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": "1",
-          "min": "0",
-          "show": true
-        }
-      ]
-    },
     {
       "aliasColors": {
         "position_err 0i": "#3f6833",
@@ -387,9 +67,9 @@
       "decimals": 3,
       "fill": 1,
       "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
+        "h": 8,
+        "w": 6,
+        "x": 0,
         "y": 0
       },
       "id": 7,
@@ -413,7 +93,7 @@
       "points": false,
       "renderer": "flot",
       "repeat": "winch_id",
-      "repeatDirection": "v",
+      "repeatDirection": "h",
       "seriesOverrides": [
         {
           "alias": "pwm 0i",
@@ -678,25 +358,22 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUX}",
-      "decimals": 3,
       "fill": 1,
       "gridPos": {
-        "h": 17,
-        "w": 12,
-        "x": 0,
-        "y": 5
+        "h": 5,
+        "w": 3,
+        "x": 12,
+        "y": 0
       },
-      "id": 2,
+      "id": 17,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
-        "current": true,
+        "current": false,
         "max": false,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 1,
@@ -706,13 +383,22 @@
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [],
+      "seriesOverrides": [
+        {
+          "alias": "y",
+          "yaxis": 2
+        },
+        {
+          "alias": "z",
+          "yaxis": 2
+        }
+      ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "alias": "force $tag_id",
+          "alias": "x",
           "groupBy": [
             {
               "params": [
@@ -722,18 +408,12 @@
             },
             {
               "params": [
-                "id"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
                 "previous"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "winch.status",
+          "measurement": "flyer.sensors",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -742,7 +422,81 @@
             [
               {
                 "params": [
-                  "force"
+                  "accelerometer.x"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "y",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "accelerometer.y"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "z",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "accelerometer.z"
                 ],
                 "type": "field"
               },
@@ -758,7 +512,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Winch Forces",
+      "title": "Flyer Accelerometer",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -774,9 +528,193 @@
       },
       "yaxes": [
         {
-          "decimals": 2,
-          "format": "masskg",
-          "label": "",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "decimals": 3,
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 15,
+        "y": 0
+      },
+      "id": 28,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "x",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "gyroscope.x"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "y",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "gyroscope.y"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "z",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "gyroscope.z"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Flyer Gyroscope",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
@@ -800,10 +738,119 @@
       "datasource": "${DS_INFLUX}",
       "fill": 1,
       "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 22
+        "h": 5,
+        "w": 3,
+        "x": 18,
+        "y": 0
+      },
+      "id": 19,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "temperature"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Flyer Temperature",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 21,
+        "y": 0
       },
       "id": 12,
       "legend": {
@@ -913,9 +960,1426 @@
           "show": true
         }
       ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 5
+      },
+      "id": 30,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "lidar.0"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "1",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "lidar.1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "2",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "lidar.2"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "3",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "lidar.3"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Flyer LIDAR",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": "1000000",
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 5
+      },
+      "id": 21,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "y",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "x",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "gimbal.control.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "angle.x"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "y",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "gimbal.control.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "angle.y"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Gimbal Angle",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {
+        "camera.pitch": "#052b51",
+        "camera.yaw": "#1f78c1",
+        "halted": "#bf1b00",
+        "relative.x": "#e5ac0e",
+        "relative.y": "#e0752d",
+        "relative.z": "#f9e2d2"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "decimals": 2,
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "halted",
+          "yaxis": 2
+        },
+        {
+          "alias": "manual_winch",
+          "yaxis": 2
+        },
+        {
+          "alias": "manual_flyer",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "halted",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "config",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "mode.halted"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "camera.pitch",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "manual_controls",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "camera.pitch"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "camera.yaw",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "manual_controls",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "camera.yaw"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "relative.x",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "manual_controls",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
+          "rawQuery": false,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "relative.x"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "relative.y",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "manual_controls",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
+          "rawQuery": false,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "relative.y"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "relative.z",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "manual_controls",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"camera.pitch\") FROM \"manual_controls\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
+          "rawQuery": false,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "relative.z"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "manual_flyer",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "config",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "mode.manual_flyer"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "manual_winch",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "config",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "mode.manual_winch"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Controls",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 1,
+          "format": "percentunit",
+          "label": "",
+          "logBase": 1,
+          "max": "1",
+          "min": "-1",
+          "show": true
+        },
+        {
+          "decimals": 0,
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": "1",
+          "min": "0",
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 10
+      },
+      "id": 32,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 1,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "0",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.0"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "1",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.1"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "2",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.2"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "3",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.3"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "4",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.4"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "5",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.5"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "6",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.6"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "7",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "flyer.sensors",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "analog.7"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Flyer Analog",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "fill": 1,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 10
+      },
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "Y rate",
+          "yaxis": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "X rate",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "gimbal.control.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rate.x"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "Y rate",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "gimbal.control.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "rate.y"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Gimbal Pan Tilt",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_INFLUX}",
+      "decimals": 3,
+      "fill": 1,
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "id": 2,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "force $tag_id",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "id"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "winch.status",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "force"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Winch Forces",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 2,
+          "format": "masskg",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ]
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
@@ -969,8 +2433,8 @@
     ]
   },
   "time": {
-    "from": "now-15m",
-    "to": "now"
+    "from": "2018-02-10T04:40:22.148Z",
+    "to": "2018-02-10T04:45:36.164Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1000,5 +2464,5 @@
   "timezone": "",
   "title": "Tuco Flyer",
   "uid": "yM0Xf3Czk",
-  "version": 14
+  "version": 27
 }
